@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Tommy's Playground</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <!-- Responsive pages -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+  div .container {
+
+  }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="Tommy's Playground.html">Tom's Playground</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="About.html">About<span class="sr-only">(current)</span></a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Steps
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="Step 1.html">Step 1. HTML & CSS</a>
+            <a class="dropdown-item" href="Step 2.html">Step 2. 3D Modleing & 3D Printer</a>
+            <a class="dropdown-item" href="Step 3.html">Step 3. 2D Drawing & Laser Cutter</a>
+            <a class="dropdown-item" href="Step 4.html">Step 4. Molding & Casting</a>
+            <a class="dropdown-item" href="Step 5.html">Step 5. PCB & Arduino</a>
+            <a class="dropdown-item" href="Step 6.html">Step 6. CNC Router</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Projects
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="Twin Giraffe.html">Twin Giraffe</a>
+            <a class="dropdown-item" href="Christmas Tree.html">Christmas Tree</a>
+            <a class="dropdown-item" href="i-table.html">i-table</a>
+            <a class="dropdown-item" href="Tom's Playground.html">*Tom's Playground*</a>
+          </div>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div style="margin-top: 100px">
+    </div>
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">Step 6. CNC Router </h2>
+      <p class="blog-post-meta">December 22, 2017 by Sungeun</p>
+
+      <p><em>CNC router (Or Computer Numerical Control router) is a computer-controlled cutting machine related
+         to the hand held router used for cutting various hard materials, such as wood, composites, aluminium,
+          steel, plastics, and foams. </em> (Wikipedia) </p>
+        <hr>
+        <p>RPM: revolutions per minute (RPM)</br>
+          Plunge: 낙하 jump or push quickly and energetically –drill bits </br>
+          Laterally: 측면으로  ---end mills </br>
+          Ramp 경사면 –end mill할 때 plunge할 때 ramp주기 (나무 결이 다르거나 딱딱한 옹이의 경우 end mill이 깨질수있음) </br></br>
+
+        </p>
+
+        <p><strong>Feed rate & Spindle Speed(RPM)</strong></br>
+          Chip load chart is not accurate, more like ambiguous as if GPS</br>
+          수학, 소리, 온도로 잘 작동하는지 확인할 수 있음.</br>
+          수학: step over/down, RPM, Feed rate</br>
+          소리: screaming(배고플 때), 우우웅(너무 많이 먹었을 때)</br>
+          온도: 멈추고 end mill 만져서 너무 뜨거우면 문제있음 </br></br>
+
+        </p>
+
+        <p><strong>Vcarve Pro</strong>: dxf파일 import해서
+          2400*1200/thickness/origin </br>
+          Select all open vectors> 두 라인 잡고 오른버튼>join >with a line </br>
+          Duplicate vetors 체크 없으면 ok </br>
+          Toolpath : profile(incut, outcut, oncut)</br>
+          순서는 pocket> incut> outcut</br></br>
+
+        </p>
+
+        <p><strong>1. pocket</strong></br>
+          -Cutting depths( 0에서 0.6mm)</br>
+          -Tool select(end mill선택), edit 선택하여 Notes확인 하고 pass depth(diameter의 half값, step over 50%, Spindle speed 12000, Feed rate 180?(upcut은 20%빨리 해도 됨, downcut 40%빼주기, straigtcut은 20빼주기)</br>
+          -clear pocket(offset: 안-밖에서 돌면서, raster(지그재그)//동그란거 깎으면 offset이 더 나을 수도/ ramp 꼭 넣기/</br>
+          -이름설정</br>
+          -3d view에서 확인하고 다시 돌아가서</br></br>
+
+        </p>
+
+        <p><strong>2. Incut</strong></br>
+          -Cutting depth plywood 두께에서 0.3추가 </br>
+          -inside cut/ add ramp to toolpath (zig zag)</br>
+          -distance 30~40mm(멀수록 부드럽게)/ name holes쓰기 </br>
+          -incut하는 부분이 insert해서 끼려고하는 부분이면 fillet>dog bone으로 fillet해준다음에 컷하기</br></br>
+        </p>
+
+        <p><strong>3. outcut</strong></br>
+          -endmill 2개 같은 사이즈 미리 썻으면 자동으로 설정됨/ Tabs설정!! (없으면 나무가 움직이면서 망함) add tabs해서 클릭하여 설정 (길수록 많이 필요, 어려운데(코너,샌딩안하고싶은데)는 넣지 말기)</br>
+          -Toolpath list 클릭하고 preview visible toolpasth하기  </br>
+          -Save toolpath하고 저장 </br>
+          -Copyand paste해서 cnc방에잇는 컴터에  </br></br>
+
+        </p>
+
+        <p><strong>[CNC작동방법]</strong></br>
+          *Shot bot>Tool>Sprindle Speed 꼭 열고 시작해야함! (sprindle이 자동으로 RPM계산위해서)</br>
+          1. 기계 emergency버튼 누르고 오른쪽으로 돌리기, reset버튼 누르기</br>
+          2. shot bot프로그램 열고 노란버튼 눌러서 origin설정</br>
+          방향키 조정(X,Y), Page up/down 조정(Z) </br>
+          -X.Y가 Zero가 아니면 x,y클릭해서 zero설정해주기</br>
+          -Z 수동설정: Plate이랑 Pincer을 각각 바닥과 탭에 고정시킨 후, 노란색 창끄고 빨간색 창의 Z클릭한다. 이때 Emergency button을 누를 준비하면서 조심히 관찰. Z축이 위 아래로 움직이면서 조정</br></br>
+
+          *나사 박은 데 원점에 사각형 그리고 시작하기 (3mm) : 자를 물체가 사각형에 닿지 않도록 옮기고 recaculate하기 </br></br>
+
+          *end mil 교체할때 항상 노란색 프로그램 끄기</br></br>
+          *중간에 stop하고 end mill너무 뜨거우면 vcarve다시 열어서 sprindle/feed 다시 조절 하고 시작</br></br></br></br></br>
+
+        </p>
+
+      </div>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+  </html>
